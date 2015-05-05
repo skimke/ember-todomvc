@@ -4,7 +4,7 @@
 	<ul id="todo-list">
 	{{#each}}
 		<li {{bind-attr class="isCompleted:completed"}}> {{!-- add the class based on value --}}
-			<input type="checkbox" class="toggle">
+			{{input type="checkbox" checked=isCompleted class="toggle"}} {{!-- input that updates value --}}
 			<label>{{title}}</label><button class="destroy"></button>
 		</li>
 	{{/each}}
