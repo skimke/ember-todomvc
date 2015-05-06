@@ -5,7 +5,7 @@
 	{{#each itemController="todo"}}
 		<li {{bind-attr class="isCompleted:completed isEditing:editing"}}> {{!-- add the class based on value --}}
 		{{#if isEditing}} {{!-- handlebars do not have conditional if/else statements --}}
-			<input class="edit">
+			{{input type="text" class="edit" value=title focus-out="acceptChanges" insert-newline="acceptChanges"}}
 		{{else}}
 			{{input type="checkbox" checked=isCompleted class="toggle"}} {{!-- input that updates value --}}
 			<label {{action "editTodo" on="doubleClick"}}>{{title}}</label><button class="destroy"></button>
