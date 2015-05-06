@@ -1,7 +1,7 @@
 {{input type="text" id="new-todo" placeholder="What do you need to get done?" value=newTitle action="createTodo"}}
 
 <section id="main">
-	{{outlet}}
+	{{outlet}} {{!-- where the list of todos are returned from the model through the complete/active routes and the todos controller --}}
 
 	<input type="checkbox" id="toggle-all">
 </section>
