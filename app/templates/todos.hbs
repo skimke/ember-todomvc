@@ -8,7 +8,7 @@
 			<input class="edit">
 		{{else}}
 			{{input type="checkbox" checked=isCompleted class="toggle"}} {{!-- input that updates value --}}
-			<label>{{title}}</label><button class="destroy"></button>
+			<label {{action "editTodo" on="doubleClick"}}>{{title}}</label><button class="destroy"></button>
 		{{/if}}
 		</li>
 	{{/each}}
