@@ -3,9 +3,13 @@
 <section id="main">
 	<ul id="todo-list">
 	{{#each}}
-		<li {{bind-attr class="isCompleted:completed"}}> {{!-- add the class based on value --}}
+		<li {{bind-attr class="isCompleted:completed isEditing:editing"}}> {{!-- add the class based on value --}}
+		{{#if isEditing}} {{!-- handlebars do not have conditional if/else statements --}}
+			<input class="edit">
+		{{else}}
 			{{input type="checkbox" checked=isCompleted class="toggle"}} {{!-- input that updates value --}}
 			<label>{{title}}</label><button class="destroy"></button>
+		{{/if}}
 		</li>
 	{{/each}}
 	</ul>
