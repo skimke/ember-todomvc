@@ -5,5 +5,8 @@ export default Ember.ObjectController.extend({ //must specify ObjectController r
 		editTodo: function() {
 			this.set('isEditing', true);
 		}
-	}
+	}//,
+
+	// isEditing: false
+	// the isEditing property can be manually added but ember takes care of this
 });
