@@ -2,7 +2,7 @@
 
 <section id="main">
 	<ul id="todo-list">
-	{{#each}}
+	{{#each itemController="todo"}}
 		<li {{bind-attr class="isCompleted:completed isEditing:editing"}}> {{!-- add the class based on value --}}
 		{{#if isEditing}} {{!-- handlebars do not have conditional if/else statements --}}
 			<input class="edit">
