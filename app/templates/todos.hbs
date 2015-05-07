@@ -16,8 +16,10 @@
 		<li>{{#link-to "todos.active" activeClass="selected"}}Active{{/link-to}}</li>
 		<li>{{#link-to "todos.complete" activeClass="selected"}}Completed{{/link-to}}</li>
 	</ul>
-
-	<button id="clear-completed">
-		Clear Completed (1)
+	
+	{{#if hasCompleted}}
+	<button id="clear-completed" {{action "clearCompleted"}}>
+		Clear Completed ({{completed}})
 	</button>
+	{{/if}}
 </section>
