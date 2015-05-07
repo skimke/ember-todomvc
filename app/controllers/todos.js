@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+// all of the following a javascript objects with key value pairs.
+
 export default Ember.ArrayController.extend({ //need to specify controller type
 	actions: {
 		createTodo: function(newTitle) { //handlebar automatically passes in values as this variable
