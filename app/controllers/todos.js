@@ -14,14 +14,29 @@ export default Ember.ArrayController.extend({ //need to specify controller type
 
 			// save the new todo
 			todo.save();
+		},
+		clearCompleted: function() {
+			var completed = this.filterBy('isCompleted', true);
+			completed.invoke('deleteRecord'); //compare this to how you'd store.createRecord
+			completed.invoke('save');
 		}
 	},
+
 	remaining: function() {
 		return this.filterBy('isCompleted', false).get('length'); //count for all todos with isCompleted value of false
 	}.property('@each.isCompleted'), //a computed property that will watch each todo for changes to the isCompleted value
+
 	inflection: function() {
 		var remaining = this.get('remaining');
 		return (remaining === 1) ? 'item' : 'items';
-	}.property('remaining') //computed property that watches the remaining property
+	}.property('remaining'), //computed property that watches the remaining property
+
+	completed: function() {
+		return this.filterBy('isCompleted', true).get('length');
+	}.property('@each.isCompleted'),
+
+	hasCompleted: function() {
+		return this.get('completed') > 0; //the var completed in completed
+	}.property('completed') //watching the completed property
 
 });
