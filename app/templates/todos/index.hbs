@@ -1,11 +1,11 @@
 <ul id="todo-list">
-{{#each itemController="todo"}}
-	<li {{bind-attr class="isCompleted:completed isEditing:editing"}}> {{!-- add the class based on value --}}
-	{{#if isEditing}} {{!-- handlebars do not have conditional if/else statements --}}
-		{{input type="text" class="edit" value=title focus-out="acceptChanges" insert-newline="acceptChanges"}}
+{{#each todo in this itemController="todo"}} {{!-- http://emberjs.com/deprecations/v1.x/#toc_more-consistent-handlebars-scope --}}
+	<li {{bind-attr class="todo.model.isCompleted:completed todo.isEditing:editing"}}> {{!-- add the class based on value --}}
+	{{#if todo.isEditing}} {{!-- handlebars do not have conditional if/else statements --}}
+		{{input type="text" class="edit" value=todo.model.title focus-out="acceptChanges" insert-newline="acceptChanges"}} {{!-- //http://emberjs.com/deprecations/v1.x/#toc_objectcontroller --}}
 	{{else}}
-		{{input type="checkbox" checked=isCompleted class="toggle"}} {{!-- input that updates value --}}
-		<label {{action "editTodo" on="doubleClick"}}>{{title}}</label>
+		{{input type="checkbox" checked=todo.model.isCompleted class="toggle"}} {{!-- input that updates value --}}
+		<label {{action "editTodo" on="doubleClick"}}>{{todo.model.title}}</label>
 		<button {{action "removeTodo"}} class="destroy"></button>
 	{{/if}}
 	</li>

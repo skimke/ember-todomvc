@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.ObjectController.extend({ //must specify ObjectController rather than default Controller
+export default Ember.Controller.extend({ //http://emberjs.com/deprecations/v1.x/#toc_objectcontroller
 	actions: {
 		editTodo: function() {
 			this.set('isEditing', true);
